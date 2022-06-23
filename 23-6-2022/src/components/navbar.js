@@ -17,6 +17,10 @@ function Navbar(){
                         <NavLink className="nav-Link mx-2" to='/about' >About</NavLink>
                         </li>
 
+                        <li className="nav-item">
+                        <NavLink className="nav-Link mx-2" to='/counter' >Counter</NavLink>
+                        </li>
+
                     </ul>
 
                     
