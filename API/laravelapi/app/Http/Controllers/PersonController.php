@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class PersonController extends Controller
 {
     public function addData(Request $request){
+        
         $person = new Person();
         
         $person->name = $request->name;

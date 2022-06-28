@@ -20,16 +20,15 @@ class Form extends React.Component
 
     saveData = async (e)=>{
         e.preventDefault();
-        console.log(e.target.name.value);
-        console.log(e.target.email.value)
 
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: e.target.name.value , email:e.target.email.value })
         };
+
        const response = await fetch("http://127.0.0.1:8000/api/add_person" ,requestOptions );
-       console.log(response);
+       
        if(response.ok){
         alert('Data Added Successfully');
         window.location.href = 'http://localhost:3000/';
