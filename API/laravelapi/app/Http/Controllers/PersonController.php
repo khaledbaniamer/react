@@ -16,13 +16,10 @@ class PersonController extends Controller
 
         $stutas =  $person->save();
 
-        // if($stutas){
-        //    return redirect('http://localhost:3000/');
-        // }else{
-        //     return redirect('http://localhost:3000/');
-        // }
-        
+    }
 
-
+    public function showApi (){
+        $api = Person::all();
+        return $api;
     }
 }
