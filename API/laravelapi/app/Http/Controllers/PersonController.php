@@ -22,4 +22,19 @@ class PersonController extends Controller
         $api = Person::all();
         return $api;
     }
+
+    public function showSingleApi($id)
+    {
+        $singleApi = Person::find($id);
+        return $singleApi;
+    }
+
+    public function updateData($id , Request $request)
+    {
+        $updateApi = Person::find($id);
+        $updateApi->name = $request->name;
+        $updateApi->email = $request->email;
+
+        $updateApi->save();
+    }
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import Form from "./components/form";
 import Show from "./components/show";
-import {BrowserRouter, Routes ,Route} from 'react-router-dom';
+import Update from "./components/update";
+import {BrowserRouter,Router, Routes ,Route ,Switch} from 'react-router-dom';
 
 
 class App extends React.Component
@@ -16,6 +17,9 @@ class App extends React.Component
         <Form />
         <Show />
       </div>
+      <Routes>
+          <Route path="/update" element={<Update />}/>
+      </Routes>
       </BrowserRouter>
     );
   }
