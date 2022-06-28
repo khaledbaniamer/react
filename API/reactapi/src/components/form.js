@@ -1,4 +1,6 @@
 import React from "react";
+import { Route } from "react-router-dom";
+import Show from "./show";
 
 class Form extends React.Component
 {
@@ -44,16 +46,17 @@ class Form extends React.Component
                 <h1>Form</h1>
                 
                 <form onSubmit={this.saveData} >
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Name</label>
-                    <input type="text" class="form-control" name="name" onChange={this.handleInput} value={this.state.name}/>
+                <div className="mb-3">
+                    <label  className="form-label">Name</label>
+                    <input type="text" className="form-control" name="name" onChange={this.handleInput} value={this.state.name}/>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" onChange={this.handleInput} value={this.state.email} />
+                <div className="mb-3">
+                    <label  className="form-label">Email</label>
+                    <input type="email" className="form-control" name="email" onChange={this.handleInput} value={this.state.email} />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
                 </form>
+
             </div>
         );
     }
