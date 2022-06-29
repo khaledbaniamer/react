@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useState} from "react";
+import {useParams} from 'react-router-dom'
+
 import './hooks.css'
 const Hooks = ()=>{
+    // const params = new useParams();
+    console.log(useParams);
     const [name , setName]=useState('Ahmad')
 
    const  handleClick = ()=>{
