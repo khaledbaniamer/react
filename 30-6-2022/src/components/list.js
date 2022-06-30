@@ -1,24 +1,25 @@
 import { useEffect , useState } from "react";
 
-const GetData = ()=>
+const List = ()=>
 {
     const [data , setData] = useState([]);
     useEffect (()=>{
         const fetchData = async ()=>{
-            const api = await fetch('https://jsonplaceholder.typicode.com/users');
+            const api = await fetch('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=bc63f0c08d018cf26d4cf02b8efde4d7');
             const allData = await api.json();
-            setData(allData);
+            setData(allData.results);
+
         }
         fetchData();
     } , [])
   
     return (
-        <div >
-            <table className="table">
+        <div className="container">
+            <table className="table ">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
+                        <th>Rate</th>
                         <th>Email</th>
                     </tr>
                 </thead>
@@ -28,9 +29,11 @@ const GetData = ()=>
             {data.map((user)=>{
                 return(
                     <tr key={user.id}>
-                        <td>{user.id}</td>
-                        <td>{user.name}</td>
-                        <td>{user.email}</td>
+                        <td>{user.title}</td>
+                        <td>{user.vote_average}</td>
+                        <td>
+                            <img src={'https://image.tmdb.org/t/p/w500/'+user.backdrop_path} width='100px' height='100px'/>
+                        </td>
                     </tr>
                 )
             })}
@@ -40,4 +43,4 @@ const GetData = ()=>
     )
 }
 
-export default GetData;
+export default List;
