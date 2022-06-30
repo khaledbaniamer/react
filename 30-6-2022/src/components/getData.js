@@ -10,7 +10,7 @@ const GetData = ()=>
             setData(allData);
         }
         fetchData();
-    },[setData])
+    })
   
     return (
         <div >
