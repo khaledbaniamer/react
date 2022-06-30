@@ -55,6 +55,7 @@ class Show extends React.Component
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>
+                                    
                                     <Link to={`/update?id=${user.id}`}  className="m-1">Update</Link>
                                     <Link to={`/delete/${user.id}`} className="m-1">Delete</Link>
                                 </td>
