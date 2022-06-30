@@ -4,18 +4,24 @@ import './single.css'
 const Film = ()=>{
 
     const {id} = useParams();
-    const [film , setFilm] = useState();
+    const [film , setFilm] = useState([]);
  
     useEffect (()=>{
         const fetchData = async ()=>{
-            const api = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=bc63f0c08d018cf26d4cf02b8efde4d7`);
+            const api = await fetch('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=bc63f0c08d018cf26d4cf02b8efde4d7');
             const allData = await api.json();
-            setFilm(allData);
-            
+            allData.results.filter((data)=>{
+				if(data.id==id){
+					return setFilm(data)
+				}
+			})
+			
+
         }
         fetchData();
     } , [])
-    console.log(film)
+
+	console.log(film)
     return(
         <div className  ="container">
 		<div className="card">
