@@ -9,7 +9,7 @@ class Nav extends React.Component
     }
 
     render(){
-        console.log(this.props)
+        
         return(
             <div style={{backgroundColor:this.props.color.color , color:'white'}}>
             <nav className="navbar navbar-expand-lg ">

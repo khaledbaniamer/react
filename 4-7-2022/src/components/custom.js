@@ -1,13 +1,14 @@
 import {useState } from 'react';
 
-export default function Custome(em, pa){
-const [email , setEmail] = useState("khaled@mail.com");
-const [pass , setpass] = useState("123");
-const [status , setStatus] = useState(false);
-const Handlechange = () =>{
-    if(em ==email && pa ==pass)
+export default function Custome(givenEmail , givenPass){
+  // console.log(givenEmail , givenPass)
+const [data , setData] = useState({ema:'khaled@mail.com' , pass:'123' , status:false});
+// console.log(data)
+const Handlechange = (e) =>{
+  e.preventDefault();
+    if(givenEmail == data.ema && givenPass ==data.pass)
    {
-    setStatus(true)
+    setData({status:true})
      window.alert('Login is success');
    }else{
     window.alert('Login is danger');
@@ -15,6 +16,6 @@ const Handlechange = () =>{
     }
 
     return(
-    [ email ,pass , status, Handlechange]
+    [ data.status , Handlechange]
     )
 }

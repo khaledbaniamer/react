@@ -1,32 +1,33 @@
-
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import Custome from './custom';
-
+// import image  form '../image';
 const Login=()=>{
-    const [data ,setData]=useState({email:'' , password:'' ,status:false});
-    const [userData , setUserData ,status, handleSubmit] = Custome(data)
-    console.log(userData , setUserData ,status);
-    console.log(data );
-   const handleChange =(e)=>{
-    e.preventDefault()
-        setData({[e.target.name]:e.target.value});
-        // console.log(data)
-    }
+    const [email ,setEmail]=useState('');
+    const [pass ,setPas]=useState('');
+    const [ status , handleSubmit] = Custome(email , pass)
+    console.log(status);
+  //  if (status) {
+  //   window.location.href='/';
+  // }else{
+  //    window.location.href='/login';
 
+  //  }
+  console.log(process.env)
   return (
         <div className="container">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
             <div className="form-group">
             <label >Email:</label>
-            <input type="email" className="form-control" onChange={handleChange} value={data.email} placeholder="Enter email" name="email"  />
+            <input type="email" className="form-control" onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" name="email"  />
             </div>
             <div className="form-group">
             <label >Password:</label>
-            <input type="password" className="form-control" onChange={handleChange} value={data.password} placeholder="Enter password" name="pwd" />
+            <input type="password"  className="form-control" onChange={(e)=>setPas(e.target.value)} placeholder="Enter password" name="password" />
             </div>
-            <button type="submit"  className="btn btn-primary mt-5" >Submit</button>
+            <button  className="btn btn-primary mt-5" >Submit</button>
         </form>
+        <img src={process.env.PUBLIC_URL +'./image/1.png'} />
         </div>
   );
 }
